@@ -3,13 +3,17 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "peru": "ng serve peru",
+    "lima": "ng serve lima",
+    "cuzco": "ng serve cuzco",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "run:all": "node node_modules/@angular-architects/module-federation/src/server/mf-dev-server.js"
   },
   "private": true,
   "dependencies": {
+    "@angular-architects/module-federation": "^12.0.1",
     "@angular/animations": "~12.2.0",
     "@angular/common": "~12.2.0",
     "@angular/compiler": "~12.2.0",
@@ -23,6 +27,7 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
+    "@angular-devkit/build-angular": "~12.2.13",
     "@angular/cli": "~12.2.13",
     "@angular/compiler-cli": "~12.2.0",
     "@types/jasmine": "~3.8.0",

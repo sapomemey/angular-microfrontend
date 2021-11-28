@@ -1,7 +1,344 @@
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1,
-  "newProjectRoot": "projects",
-  "projects": {
-  }
+	"$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+	"version": 1,
+	"newProjectRoot": "projects",
+	"projects": {
+		"peru": {
+			"projectType": "application",
+			"schematics": {
+				"@schematics/angular:component": {
+					"style": "scss"
+				},
+				"@schematics/angular:application": {
+					"strict": true
+				}
+			},
+			"root": "projects/peru",
+			"sourceRoot": "projects/peru/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"outputPath": "dist/peru",
+						"index": "projects/peru/src/index.html",
+						"main": "projects/peru/src/main.ts",
+						"polyfills": "projects/peru/src/polyfills.ts",
+						"tsConfig": "projects/peru/tsconfig.app.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							"projects/peru/src/favicon.ico",
+							"projects/peru/src/assets"
+						],
+						"styles": [
+							"projects/peru/src/styles.scss"
+						],
+						"scripts": [],
+						"extraWebpackConfig": "projects/peru/webpack.config.js",
+						"commonChunk": false
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kb",
+									"maximumError": "1mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kb",
+									"maximumError": "4kb"
+								}
+							],
+							"fileReplacements": [
+								{
+									"replace": "projects/peru/src/environments/environment.ts",
+									"with": "projects/peru/src/environments/environment.prod.ts"
+								}
+							],
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/peru/webpack.prod.config.js"
+						},
+						"development": {
+							"buildOptimizer": false,
+							"optimization": false,
+							"vendorChunk": true,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"configurations": {
+						"production": {
+							"browserTarget": "peru:build:production",
+							"extraWebpackConfig": "projects/peru/webpack.prod.config.js"
+						},
+						"development": {
+							"browserTarget": "peru:build:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 5000,
+						"extraWebpackConfig": "projects/peru/webpack.config.js"
+					}
+				},
+				"extract-i18n": {
+					"builder": "ngx-build-plus:extract-i18n",
+					"options": {
+						"browserTarget": "peru:build",
+						"extraWebpackConfig": "projects/peru/webpack.config.js"
+					}
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"main": "projects/peru/src/test.ts",
+						"polyfills": "projects/peru/src/polyfills.ts",
+						"tsConfig": "projects/peru/tsconfig.spec.json",
+						"karmaConfig": "projects/peru/karma.conf.js",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							"projects/peru/src/favicon.ico",
+							"projects/peru/src/assets"
+						],
+						"styles": [
+							"projects/peru/src/styles.scss"
+						],
+						"scripts": []
+					}
+				}
+			}
+		},
+		"lima": {
+			"projectType": "application",
+			"schematics": {
+				"@schematics/angular:component": {
+					"style": "scss"
+				},
+				"@schematics/angular:application": {
+					"strict": true
+				}
+			},
+			"root": "projects/lima",
+			"sourceRoot": "projects/lima/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"outputPath": "dist/lima",
+						"index": "projects/lima/src/index.html",
+						"main": "projects/lima/src/main.ts",
+						"polyfills": "projects/lima/src/polyfills.ts",
+						"tsConfig": "projects/lima/tsconfig.app.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							"projects/lima/src/favicon.ico",
+							"projects/lima/src/assets"
+						],
+						"styles": [
+							"projects/lima/src/styles.scss"
+						],
+						"scripts": [],
+						"extraWebpackConfig": "projects/lima/webpack.config.js",
+						"commonChunk": false
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kb",
+									"maximumError": "1mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kb",
+									"maximumError": "4kb"
+								}
+							],
+							"fileReplacements": [
+								{
+									"replace": "projects/lima/src/environments/environment.ts",
+									"with": "projects/lima/src/environments/environment.prod.ts"
+								}
+							],
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/lima/webpack.prod.config.js"
+						},
+						"development": {
+							"buildOptimizer": false,
+							"optimization": false,
+							"vendorChunk": true,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"configurations": {
+						"production": {
+							"browserTarget": "lima:build:production",
+							"extraWebpackConfig": "projects/lima/webpack.prod.config.js"
+						},
+						"development": {
+							"browserTarget": "lima:build:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 3000,
+						"extraWebpackConfig": "projects/lima/webpack.config.js"
+					}
+				},
+				"extract-i18n": {
+					"builder": "ngx-build-plus:extract-i18n",
+					"options": {
+						"browserTarget": "lima:build",
+						"extraWebpackConfig": "projects/lima/webpack.config.js"
+					}
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"main": "projects/lima/src/test.ts",
+						"polyfills": "projects/lima/src/polyfills.ts",
+						"tsConfig": "projects/lima/tsconfig.spec.json",
+						"karmaConfig": "projects/lima/karma.conf.js",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							"projects/lima/src/favicon.ico",
+							"projects/lima/src/assets"
+						],
+						"styles": [
+							"projects/lima/src/styles.scss"
+						],
+						"scripts": []
+					}
+				}
+			}
+		},
+		"cuzco": {
+			"projectType": "application",
+			"schematics": {
+				"@schematics/angular:component": {
+					"style": "scss"
+				},
+				"@schematics/angular:application": {
+					"strict": true
+				}
+			},
+			"root": "projects/cuzco",
+			"sourceRoot": "projects/cuzco/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"outputPath": "dist/cuzco",
+						"index": "projects/cuzco/src/index.html",
+						"main": "projects/cuzco/src/main.ts",
+						"polyfills": "projects/cuzco/src/polyfills.ts",
+						"tsConfig": "projects/cuzco/tsconfig.app.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							"projects/cuzco/src/favicon.ico",
+							"projects/cuzco/src/assets"
+						],
+						"styles": [
+							"projects/cuzco/src/styles.scss"
+						],
+						"scripts": [],
+						"extraWebpackConfig": "projects/cuzco/webpack.config.js",
+						"commonChunk": false
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kb",
+									"maximumError": "1mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kb",
+									"maximumError": "4kb"
+								}
+							],
+							"fileReplacements": [
+								{
+									"replace": "projects/cuzco/src/environments/environment.ts",
+									"with": "projects/cuzco/src/environments/environment.prod.ts"
+								}
+							],
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/cuzco/webpack.prod.config.js"
+						},
+						"development": {
+							"buildOptimizer": false,
+							"optimization": false,
+							"vendorChunk": true,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"configurations": {
+						"production": {
+							"browserTarget": "cuzco:build:production",
+							"extraWebpackConfig": "projects/cuzco/webpack.prod.config.js"
+						},
+						"development": {
+							"browserTarget": "cuzco:build:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4200,
+						"extraWebpackConfig": "projects/cuzco/webpack.config.js"
+					}
+				},
+				"extract-i18n": {
+					"builder": "ngx-build-plus:extract-i18n",
+					"options": {
+						"browserTarget": "cuzco:build",
+						"extraWebpackConfig": "projects/cuzco/webpack.config.js"
+					}
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"main": "projects/cuzco/src/test.ts",
+						"polyfills": "projects/cuzco/src/polyfills.ts",
+						"tsConfig": "projects/cuzco/tsconfig.spec.json",
+						"karmaConfig": "projects/cuzco/karma.conf.js",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							"projects/cuzco/src/favicon.ico",
+							"projects/cuzco/src/assets"
+						],
+						"styles": [
+							"projects/cuzco/src/styles.scss"
+						],
+						"scripts": []
+					}
+				}
+			}
+		}
+	},
+	"defaultProject": "peru"
 }
